@@ -1,0 +1,184 @@
+.playback-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.current-song-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.now-playing {
+  font-size: 0.8em;
+  color: var(--text-secondary);
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+
+.current-song-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.current-song-artist {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  opacity: 0.9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.youtube-indicator {
+  font-size: 0.8em;
+  color: #ff6b6b;
+  opacity: 0.8;
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.no-song {
+  color: var(--text-secondary);
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.control-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2em;
+  backdrop-filter: blur(10px);
+}
+
+.play-btn {
+  width: 55px;
+  height: 55px;
+  font-size: 1.4em;
+  background: var(--button-primary);
+  border-color: rgba(255, 107, 107, 0.5);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.play-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.play-btn.playing {
+  animation: pulse 2s infinite;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 215, 61, 0.5);
+  transform: scale(1.05);
+}
+
+.mode-btn:hover {
+  background: rgba(79, 172, 254, 0.3);
+  border-color: rgba(79, 172, 254, 0.5);
+  transform: scale(1.05);
+}
+
+.mode-btn.active {
+  background: var(--button-secondary);
+  border-color: rgba(79, 172, 254, 0.8);
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.control-btn:disabled:hover {
+  transform: none;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.control-btn:disabled:hover {
+  transform: none;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  }
+  50% { 
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(255, 107, 107, 0.5);
+  }
+}
+
+/* Progress bar (placeholder for future implementation) */
+.progress-container {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--accent-color);
+  width: 30%; /* Demo progress */
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .playback-controls {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .control-buttons {
+    justify-content: center;
+  }
+  
+  .control-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1em;
+  }
+  
+  .play-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3em;
+  }
+}

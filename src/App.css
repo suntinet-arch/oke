@@ -1,0 +1,148 @@
+.app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background: var(--primary-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top Search Bar */
+.top-search-bar {
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: none;
+  padding: 15px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.top-search-bar.visible {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.top-search-bar.hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+/* Enhanced visibility when interacting */
+.top-search-bar:hover,
+.top-search-bar:focus-within,
+.top-search-bar.immediate-show {
+  background: rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(3px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Show search bar immediately when typing */
+.top-search-bar.show-immediately {
+  transition: none;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: var(--primary-bg);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 0 30px rgba(255, 215, 61, 0.3);
+  animation: popupAppear 0.3s ease;
+}
+
+.popup-content h3 {
+  margin: 0 0 20px 0;
+  color: var(--accent-color);
+  font-size: 1.5em;
+}
+
+.popup-close-btn {
+  background: var(--accent-color);
+  color: var(--primary-bg);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.popup-close-btn:hover {
+  background: #ffd93d;
+  transform: scale(1.05);
+}
+
+@keyframes popupAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.center-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .top-search-bar {
+    padding: 10px 15px;
+  }
+  
+  .main-content {
+    width: 100vw;
+    height: 100vh;
+  }
+}

@@ -1,0 +1,163 @@
+.api-status {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  max-width: 400px;
+}
+
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 25px;
+  color: white;
+  font-size: 0.85em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.status-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.status-text {
+  flex: 1;
+}
+
+.toggle-icon {
+  font-size: 0.7em;
+  transition: transform 0.3s ease;
+}
+
+.status-details {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.status-details h4 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1.1em;
+}
+
+.demo-info,
+.invalid-info,
+.valid-info {
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 4px solid;
+}
+
+.demo-info {
+  background: rgba(255, 107, 107, 0.1);
+  border-color: #ff6b6b;
+}
+
+.invalid-info {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+}
+
+.valid-info {
+  background: rgba(74, 222, 128, 0.1);
+  border-color: #4ade80;
+}
+
+.demo-info p,
+.invalid-info p,
+.valid-info p {
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.demo-info ul,
+.invalid-info ul,
+.valid-info ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.demo-info li,
+.invalid-info li,
+.valid-info li {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+.setup-guide {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(79, 172, 254, 0.1);
+  border-radius: 10px;
+  border-left: 4px solid #4facfe;
+}
+
+.setup-guide p {
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.setup-guide ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.setup-guide li {
+  margin: 8px 0;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.setup-guide a {
+  color: #4facfe;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.setup-guide a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .api-status {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+  
+  .status-details {
+    padding: 15px;
+  }
+  
+  .setup-guide ol {
+    padding-left: 15px;
+  }
+}
